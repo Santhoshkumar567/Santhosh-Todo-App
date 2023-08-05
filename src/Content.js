@@ -2,15 +2,7 @@ import React from "react";
 import { TrashIcon } from "@heroicons/react/24/solid";
 
 const Content = ({ items, handleCheck, deleteObj, searchTerm }) => {
-  // if (!Array.isArray(items)) {
-  //   // Handle the case when the items are not an array (e.g., API fetch failed)
-  //   return (
-  //     <div className="text-xl">
-  //       {fetchError !== null ? `Error: ${fetchError}` : "Loading..."}
-  //     </div>
-  //   );
-  // }
-  // function for filtering results from cliking the search button
+
   const filteredItems = items.filter((item) =>
     item.item.toLowerCase().includes(searchTerm.toLowerCase())
   );
