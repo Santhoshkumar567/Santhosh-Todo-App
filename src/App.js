@@ -74,7 +74,7 @@ function App() {
   };
 
   //dynamic value for heading
-  const Technlogies = "FrontEnd-Courss";
+  const Technlogies = "TODO-APP";
 
   return  (
     <div className="w-full sm:w-6/12 mx-auto  my-3">
