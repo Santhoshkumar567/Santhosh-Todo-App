@@ -7,20 +7,15 @@ import { useState } from "react";
 function App() {
   // collecting the previous list of items stored in the local storage
   
-  const [items, setItems] = useState([])
-  const [fetchError, setFetchError] = useState(null);
-   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        const response = await JSON.parse(localStorage.getItem("todo_list")); 
-        setItems(response);
-        setFetchError(null);
-      } catch (err) {
-        setFetchError(err.message);
-      }
-    };
-    fetchItems();
-  }, []);
+  let initialItems = [];
+  try {
+    const storedItems = JSON.parse(localStorage.getItem("todo_list"));
+    initialItems = storedItems || [];
+  } catch (error) {
+    console.error("Local storage is not available or the data is corrupted.");
+  }
+
+  const [items, setItems] = useState(initialItems);
 
 
   // use State for setting the input values in the Additem Component
