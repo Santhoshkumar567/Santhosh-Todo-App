@@ -50,11 +50,14 @@ function App() {
   };
 
   //function for deleting an item from the list and local storage
-  const deleteObj =  (id) => {
+ const deleteObj = (id) => {
+  if (items) {
     let listItems = items.filter((item) => item.id !== id);
     setItems(listItems);
-    localStorage.setItem("todo_list",JSON.stringify(listItems));
-  };
+    localStorage.setItem("todo_list", JSON.stringify(listItems));  
+  }
+}
+
 
   // function for Adda a new item to the list but click the Add  button
   const handleSubmit = (e) => {
